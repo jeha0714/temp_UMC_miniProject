@@ -1,4 +1,3 @@
-import React from "react";
 import ButtonBox2 from "./ClubList/ButtonBox2";
 import { TClubCategory } from "../types/club";
 import emojiEdu from "../assets/images/emoji_edu.svg";
