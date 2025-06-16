@@ -3,10 +3,9 @@ import { useNavigate } from "react-router-dom";
 
 interface SearchBarProps {
   categoryTitle: string;
-  onCategoryChange: (term: string) => void;
 }
 
-const SearchBar = ({ categoryTitle, onCategoryChange }: SearchBarProps) => {
+const SearchBar = ({ categoryTitle }: SearchBarProps) => {
   const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
 
@@ -40,7 +39,7 @@ const SearchBar = ({ categoryTitle, onCategoryChange }: SearchBarProps) => {
           <img src="../src/assets/images/emoji_search.svg" alt="검색버튼" />
         </button>
       </div>
-      <h2 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-xl font-bold">
+      <h2 className="absolute text-xl font-bold -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2">
         {categoryTitle}
       </h2>
     </div>

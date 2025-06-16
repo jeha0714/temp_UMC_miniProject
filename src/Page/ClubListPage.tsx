@@ -71,10 +71,6 @@ const ClubListPage = () => {
     return () => clearTimeout(debounceTimer);
   }, [selectedCategory, searchTerm]);
 
-  const handleSearch = (term: string) => {
-    setSearchTerm(term);
-  };
-
   const handleCategoryChange = (category: TClubCategory) => {
     setSelectedCategory(category);
     setSearchTerm("");
@@ -82,26 +78,23 @@ const ClubListPage = () => {
 
   if (loading) {
     return (
-      <div className="w-full h-full flex items-center justify-center">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900"></div>
+      <div className="flex items-center justify-center w-full h-full">
+        <div className="w-8 h-8 border-b-2 border-gray-900 rounded-full animate-spin"></div>
       </div>
     );
   }
 
   if (error) {
     return (
-      <div className="w-full h-full flex items-center justify-center text-red-500">
+      <div className="flex items-center justify-center w-full h-full text-red-500">
         {error}
       </div>
     );
   }
 
   return (
-    <div className="w-full h-full flex flex-col overflow-hidden">
-      <SearchBar
-        categoryTitle={categoryNameMap[selectedCategory]}
-        onCategoryChange={handleSearch}
-      />
+    <div className="flex flex-col w-full h-full overflow-hidden">
+      <SearchBar categoryTitle={categoryNameMap[selectedCategory]} />
 
       {/* 본문: 사이드바 + 카드 리스트 */}
       <div className="flex flex-1 overflow-hidden">
@@ -110,8 +103,8 @@ const ClubListPage = () => {
           <SideBar onCategorySelect={handleCategoryChange} />
         </div>
 
-        <div className="flex-1 overflow-y-auto pt-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 px-8">
+        <div className="flex-1 pt-10 overflow-y-auto">
+          <div className="grid grid-cols-1 gap-8 px-8 md:grid-cols-2 xl:grid-cols-3">
             {clubs.map((club) => (
               <div
                 key={club.clubId}

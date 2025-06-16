@@ -64,33 +64,25 @@ const ClubSearchPage = () => {
     searchClubs();
   }, [keyword]);
 
-  const handleSearch = (term: string) => {
-    if (term.trim()) {
-      navigate(`/clubsearch/${encodeURIComponent(term.trim())}`);
-    } else {
-      navigate("/clubsearch");
-    }
-  };
-
   const handleCategoryChange = (category: TClubCategory) => {
     navigate(`/clubintro/${category.toLowerCase()}`);
   };
 
   if (loading) {
     return (
-      <div className="w-full h-full flex items-center justify-center">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900"></div>
+      <div className="flex items-center justify-center w-full h-full">
+        <div className="w-8 h-8 border-b-2 border-gray-900 rounded-full animate-spin"></div>
       </div>
     );
   }
 
   if (error) {
     return (
-      <div className="w-full h-full flex flex-col items-center justify-center gap-4">
+      <div className="flex flex-col items-center justify-center w-full h-full gap-4">
         <div className="text-red-500">{error}</div>
         <button
           onClick={() => navigate("/clubsearch")}
-          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+          className="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600"
         >
           검색 초기화
         </button>
@@ -99,10 +91,9 @@ const ClubSearchPage = () => {
   }
 
   return (
-    <div className="w-full h-full flex flex-col overflow-hidden">
+    <div className="flex flex-col w-full h-full overflow-hidden">
       <SearchBar
         categoryTitle={keyword ? `"${keyword}" 검색 결과` : "동아리 검색"}
-        onCategoryChange={handleSearch}
       />
 
       {/* 본문: 사이드바 + 카드 리스트 */}
@@ -112,9 +103,9 @@ const ClubSearchPage = () => {
           <SideBar onCategorySelect={handleCategoryChange} />
         </div>
 
-        <div className="flex-1 overflow-y-auto pt-10">
+        <div className="flex-1 pt-10 overflow-y-auto">
           {clubs.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 px-8">
+            <div className="grid grid-cols-1 gap-8 px-8 md:grid-cols-2 xl:grid-cols-3">
               {clubs.map((club) => (
                 <div
                   key={club.clubId}
@@ -131,7 +122,7 @@ const ClubSearchPage = () => {
               ))}
             </div>
           ) : (
-            <div className="w-full h-full flex flex-col items-center justify-center text-gray-500 gap-4">
+            <div className="flex flex-col items-center justify-center w-full h-full gap-4 text-gray-500">
               <div className="text-2xl font-bold">
                 {keyword
                   ? `"${keyword}"와(과) 일치하는 동아리가 없습니다.`
