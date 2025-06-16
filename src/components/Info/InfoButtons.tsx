@@ -7,7 +7,7 @@ interface Props {
 
 const IntroButtons: React.FC<Props> = ({ activeTab, setActiveTab }) => {
   return (
-    <div className="flex justify-center text-[18px] font-bold border-2">
+    <div className="flex justify-center text-[18px] font-bold border-2 mt-15">
       <button
         className={`px-8 py-2 ${activeTab === 'notice' ? 'bg-black text-white' : 'bg-white text-black'}`}
         onClick={() => setActiveTab('notice')}
