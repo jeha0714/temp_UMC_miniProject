@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import emojiSearch from "../../assets/images/emoji_search.svg";
 
-interface SearchBarProps {
-  categoryTitle: string;
-}
+type SearchBarProps = {
+  categoryTitle?: string;
+};
 
 const SearchBar = ({ categoryTitle }: SearchBarProps) => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -36,7 +37,7 @@ const SearchBar = ({ categoryTitle }: SearchBarProps) => {
           onClick={handleSearch}
           className="w-12 h-10 p-2 bg-[#D6DBEA] rounded-full border-2 border-[#002F6C]"
         >
-          <img src="../src/assets/images/emoji_search.svg" alt="검색버튼" />
+          <img src={emojiSearch} alt="검색버튼" />
         </button>
       </div>
       <h2 className="absolute text-xl font-bold -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2">
