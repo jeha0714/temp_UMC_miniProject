@@ -1,6 +1,7 @@
 import { Props } from "../../types/MatchForm";
 import StepArrow from "./StepArrow";
 import StepBar from "./StepBar";
+import SMUClubLogo from "../../assets/images/SMUClub_LOGO.svg";
 
 const ClubMatchingHeader = ({ step, setStep }: Props) => {
   const hideArrow = step === 1;
@@ -11,10 +12,10 @@ const ClubMatchingHeader = ({ step, setStep }: Props) => {
   }
 
   return (
-    <div className="w-full flex flex-col items-center">
+    <div className="flex flex-col items-center w-full">
       <div className="w-full max-w-[1440px] flex justify-between items-start">
         <img
-          src="/src/assets/images/SMUClub_LOGO.svg"
+          src={SMUClubLogo}
           alt="로고"
           className="w-[200px] ml-[180px] mb-8"
         />
