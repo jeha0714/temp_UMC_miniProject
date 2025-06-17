@@ -20,7 +20,7 @@ const ClubMatchingHeader = ({ step, setStep }: Props) => {
           onClick={() => navigate("/")}
           src={SMUClubLogo}
           alt="로고"
-          className="w-[200px] ml-[180px] mb-8"
+          className="w-[200px] ml-[180px] mb-8 cursor-pointer"
         />
       </div>
 
